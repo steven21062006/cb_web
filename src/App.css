@@ -61,13 +61,13 @@ body {
     overflow: hidden;
 }
 
-/* Añade esto al final de tu archivo src/App.css */
+
 
 .foto-perfil .profile-img {
-  width: 100%; /* La imagen ocupa todo el ancho del div padre */
-  height: 100%; /* La imagen ocupa todo el alto del div padre */
-  object-fit: cover; /* Ajusta la imagen para cubrir el área sin deformarse */
-  border-radius: 50%; /* Asegura que la imagen también sea redonda */
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 50%; 
 }
 
 .cv-section {
@@ -124,4 +124,171 @@ body {
     margin: 5px 0 0;
     font-style: italic;
     color: #7f8c8d;
+}
+
+
+
+.experiencia-item,
+.educacion-item {
+    margin-bottom: 15px;
+    position: relative; 
+    padding-right: 40px; 
+}
+
+
+.btn-eliminar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0;
+    line-height: 1;
+    color: #e74c3c; 
+}
+
+.btn-eliminar:hover {
+    transform: scale(1.1);
+}
+
+
+.btn-agregar {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    display: block; 
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-agregar:hover {
+    background-color: #2980b9;
+}
+.editable-item {
+    position: relative;
+    padding-right: 80px; 
+}
+
+.delete-btn, .add-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8em;
+    transition: background 0.2s;
+    margin-top: 5px;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.editable-item .delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.add-btn {
+    background: #2ecc71;
+    margin-top: 15px;
+    display: block; 
+}
+
+.add-btn:hover {
+    background: #27ae60;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+}
+
+.add-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-form button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.add-form button:hover {
+    background: #2980b9;
+}
+
+
+.sobremi-view-container {
+    position: relative;
+    padding-right: 90px; 
+}
+
+.sobremi-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.edit-btn, .save-btn {
+    background: #f39c12; 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.edit-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.edit-btn:hover {
+    background: #e67e22;
+}
+
+.save-btn {
+    background: #3498db; /* Azul para guardar */
+    display: block;
+}
+
+.save-btn:hover {
+    background: #2980b9;
+}
+
+.sobremi-edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

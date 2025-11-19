@@ -1,27 +1,23 @@
-// src/components/Habilidades.js
+
 import React from 'react';
 
-function Habilidades() {
+function Habilidades({ data }) {
+  const categories = Object.keys(data); 
+
   return (
     <section className="cv-section habilidades-section">
       <h3>HABILIDADES:</h3>
       
-      <h4>Programación:</h4>
-      <ul>
-        <li>Pyhton</li>
-        <li>Javascript</li>
-      </ul>
-
-      <h4>Bases De Datos:</h4>
-      <ul>
-        <li>PostgresSQL</li>
-      </ul>
-      
-      <h4>IDIOMAS:</h4>
-      <ul>
-        <li>Español</li>
-        <li>Inglés (Intermedio)</li>
-      </ul>
+      {categories.map(category => (
+        <React.Fragment key={category}>
+          <h4>{category}:</h4>
+          <ul>
+            {data[category].map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </React.Fragment>
+      ))}
     </section>
   );
 }
