@@ -1,3 +1,89 @@
+/* --- Variables CSS para Temas --- */
+body.light {
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+  --container-bg: #ffffff;
+  --sidebar-bg: #2c3e50;
+}
+
+body.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #f4f4f9;
+  --container-bg: #2d2d2d;
+  --sidebar-bg: #000000;
+  background-color: #1a1a1a; /* Forzar fondo body */
+  color: #f4f4f9;
+}
+
+/* --- Navegación --- */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--sidebar-bg);
+  color: white;
+  margin-bottom: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.theme-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* --- Estilos Generales Adaptados al Tema --- */
+.cv-container {
+  background-color: var(--container-bg);
+  color: var(--text-color);
+}
+
+.cv-sidebar {
+  background-color: var(--sidebar-bg);
+}
+
+/* Modificar colores de texto en modo oscuro si es necesario */
+body.dark h2, body.dark h4 {
+  color: #61dafb; /* Un azul React brillante para modo oscuro */
+}
+
+body.dark .experiencia-item h4 {
+  color: #61dafb;
+}
+
+/* --- Estilos del Blog --- */
+.blog-container, .post-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--container-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.post-card {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3498db;
+  text-decoration: none;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
