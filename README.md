@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Portafolio Personal Interactivo 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto consiste en una aplicación web tipo Portafolio y Blog Técnico, desarrollada como parte de la asignatura de Desarrollo Web.
 
-## Available Scripts
+Aunque el requerimiento inicial solicitaba el uso de una API simulada (JSON Server), **se ha implementado una arquitectura Full Stack real** integrando una base de datos relacional **PostgreSQL** y un backend robusto en **Node.js/Express**.
 
-In the project directory, you can run:
+## 🚀 Características Principales
 
-### `npm start`
+* **Arquitectura Cliente-Servidor:** Separación clara entre Frontend (React) y Backend (Node.js).
+* **Base de Datos Real:** Persistencia de datos (Experiencia laboral y Posts del blog) utilizando **PostgreSQL**.
+* **Gestión de Estado Global:** Uso de `Context API` para el manejo de temas (Modo Claro / Oscuro).
+* **Routing Dinámico:** Navegación fluida con `React Router v6`.
+* **Conexión API:** Consumo de datos mediante `Axios`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  Stack Tecnológico
 
-### `npm test`
+* **Frontend:** React.js, CSS3 (Variables nativas para temas).
+* **Backend:** Node.js, Express.js.
+* **Base de Datos:** PostgreSQL.
+* **Librerías Clave:** `pg` (conexión a DB), `cors`, `dotenv`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+##  Estructura del Proyecto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para facilitar la revisión, la estructura se ha organizado de la siguiente manera:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```text
+/
+├── database.sql         # SCRIPT DE INICIALIZACIÓN DE LA BDD (Requerido)
+├── package.json         # Dependencias del Frontend
+├── public/
+└── src/
+    ├── api/             # Configuración de Axios
+    ├── backend/         # CÓDIGO DEL SERVIDOR (API + DB)
+    │   ├── db.js        # Conexión (Pool) a PostgreSQL
+    │   ├── index.js     # Endpoints y configuración del servidor
+    │   └── .env.example # Ejemplo de variables de entorno
+    ├── components/      # Componentes de React (Vistas)
+    └── context/         # Lógica del Tema (Claro/Oscuro)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Guía de Instalación y Despliegue
+Sigue estos pasos para levantar el entorno completo (Base de Datos, Backend y Frontend).
 
-### `npm run eject`
+1. Configuración de la Base de Datos (PostgreSQL)
+El profesor o evaluador debe ejecutar el script incluido para generar las tablas y datos necesarios.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Asegúrate de tener PostgreSQL instalado y corriendo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Crea una base de datos vacía llamada portafolio_db.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Ubica el archivo database.sql en la raíz de este proyecto.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ejecuta el script en tu herramienta SQL favorita (pgAdmin, DBeaver o Terminal).
 
-## Learn More
+Contenido que generará el script:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Tabla experiencia.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Tabla posts.
 
-### Code Splitting
+Inserción de datos semilla (posts de ejemplo y experiencia laboral).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Configuración del Backend (API)
+El backend corre en el puerto 5000 y sirve los datos al frontend.
 
-### Analyzing the Bundle Size
+Abre una terminal y navega a la carpeta del servidor:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Bash
 
-### Making a Progressive Web App
+cd src/backend
+Instala las dependencias del servidor:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Bash
 
-### Advanced Configuration
+npm install
+Variables de Entorno: Crea un archivo llamado .env dentro de la carpeta src/backend y configura tus credenciales locales de PostgreSQL. Puedes guiarte por el archivo .env.example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Fragmento de código
 
-### Deployment
+# Archivo: src/backend/.env
+DB_USER=postgres
+DB_PASSWORD=tu_contraseña_aqui
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=portafolio_db
+PORT=5000
+Inicia el servidor:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Bash
 
-### `npm run build` fails to minify
+node index.js
+Deberás ver el mensaje: "Servidor corriendo en http://localhost:5000"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Configuración del Frontend (React)
+El frontend corre en el puerto 3000.
+
+Abre una nueva terminal en la raíz del proyecto (sin cerrar la del backend).
+
+Instala las dependencias de React:
+
+Bash
+
+npm install
+Inicia la aplicación:
+
+Bash
+
+npm start
+El navegador se abrirá automáticamente en http://localhost:3000.
+
+Endpoints de la API
+El backend expone los siguientes endpoints JSON para consumo del frontend:
+Método,Endpoint,Descripción
+GET,/experiencia,Devuelve el listado de experiencia laboral.
+GET,/posts,Devuelve todos los artículos del blog.
+GET,/posts/:id,Devuelve el detalle de un artículo específico.
+
+Nota sobre la Implementación de PostgreSQL
+Se optó por reemplazar json-server por PostgreSQL para cumplir con estándares de la industria, permitiendo:
+
+Integridad de datos: Tipos de datos estrictos y claves primarias.
+
+Escalabilidad: Preparado para manejar grandes volúmenes de datos.
