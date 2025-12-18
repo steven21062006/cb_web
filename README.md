@@ -29,7 +29,7 @@ Para facilitar la revisión, la estructura se ha organizado de la siguiente mane
 
 ```text
 /
-├── database.sql         # SCRIPT DE INICIALIZACIÓN DE LA BDD (Requerido)
+├── database.sql         # SCRIPT DE INICIALIZACIÓN DE LA BDD 
 ├── package.json         # Dependencias del Frontend
 ├── public/
 └── src/
