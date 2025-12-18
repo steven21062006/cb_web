@@ -4,7 +4,7 @@ Este proyecto consiste en una aplicación web tipo Portafolio y Blog Técnico, d
 
 Aunque el requerimiento inicial solicitaba el uso de una API simulada (JSON Server), **se ha implementado una arquitectura Full Stack real** integrando una base de datos relacional **PostgreSQL** y un backend robusto en **Node.js/Express**.
 
-## 🚀 Características Principales
+##  Características Principales
 
 * **Arquitectura Cliente-Servidor:** Separación clara entre Frontend (React) y Backend (Node.js).
 * **Base de Datos Real:** Persistencia de datos (Experiencia laboral y Posts del blog) utilizando **PostgreSQL**.
